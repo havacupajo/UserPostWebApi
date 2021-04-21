@@ -1,0 +1,105 @@
+<div *ngIf="userPostDetails" style="padding-top: 20px;">
+    <div class="container">
+        <div class="main-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h2>User Posts</h2>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <h6>Name</h6>
+                                </div>
+                                <div class="col-sm-4 text-secondary">
+                                    {{ userPostDetails.user.name }}
+                                </div>
+                                <div class="col-sm-2">
+                                    <h6>Username</h6>
+                                </div>
+                                <div class="col-sm-4 text-secondary">
+                                    {{ userPostDetails.user.username }}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <h6>Email</h6>
+                                </div>
+                                <div class="col-sm-4 text-secondary">
+                                    {{ userPostDetails.user.email }}
+                                </div>
+                                <div class="col-sm-2">
+                                    <h6>Phone</h6>
+                                </div>
+                                <div class="col-sm-4 text-secondary">
+                                    {{ userPostDetails.user.phone }}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <h6>Address</h6>
+                                </div>
+                                <div class="col-sm-4 text-secondary">
+                                    {{ userPostDetails.user.address.street }}<br />
+                                    {{ userPostDetails.user.address.suite }}<br />
+                                    {{ userPostDetails.user.address.city }}<br />
+                                    {{ userPostDetails.user.address.zipcode }}<br />
+                                    <a [routerLink]="" (click)="openLink(userPostDetails.user.address.geo)">
+                                        [{{ userPostDetails.user.address.geo.lat }}, {{ userPostDetails.user.address.geo.lng }}]
+                                    </a>
+                                </div>
+                                <div class="col-sm-2">
+                                    <h6>Company</h6>
+                                </div>
+                                <div class="col-sm-4 text-secondary">
+                                    {{ userPostDetails.user.company.name }}<br />
+                                    {{ userPostDetails.user.company.catchPhrase }}<br />
+                                    {{ userPostDetails.user.company.bs }}<br />
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <h6>Website</h6>
+                                </div>
+                                <div class="col-sm-4 text-secondary">
+                                    {{ userPostDetails.user.website }}
+                                </div>
+                                <div class="col-sm-6">
+                                    &nbsp;
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table class='table table-sm' *ngIf="userPostDetails.posts">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Title</th>
+                                                <th>Body</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let post of userPostDetails.posts">
+                                                <td>{{ post.id }}</td>
+                                                <td>{{ post.title }}</td>
+                                                <td>{{ post.body }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

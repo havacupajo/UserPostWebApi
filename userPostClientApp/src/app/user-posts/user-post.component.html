@@ -1,0 +1,43 @@
+<div class="container" style="padding-top: 20px;">
+    <div class="main-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h2>Users</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                              <p *ngIf="!userPosts"><em>Loading...</em></p>
+                              <table class='table table-striped table-sm' *ngIf="userPosts">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>UserName</th>
+                                        <th>Count</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let userPost of userPosts">
+                                        <td>{{ userPost.user.name }}</td>
+                                        <td>{{ userPost.user.username }}</td>
+                                        <td>{{ userPost.count }}</td>
+                                        <td>
+                                            <button class="btn btn-primary" (click)="showUserDetails(userPost)">Details</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
